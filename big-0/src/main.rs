@@ -4,7 +4,7 @@ use std::time::Instant;
 
 mod arrays;
 
-use arrays::log_all_pairs_in_array;
+use arrays::{log_all_pairs_in_array, contains_common_items};
 
 fn main() {
     // let names = vec!("nemo", "titi", "toto", "nemo", "tata", "nemo");
@@ -15,9 +15,20 @@ fn main() {
     // println!("Time elapsed: {:?}", time_elapsed);
     // println!("Time elapsed: {:?}", time_elapsed.as_millis());
 
-    let arrs = vec![1, 2, 3, 4, 5];
+    // let arrs = vec![1, 2, 3, 4, 5];
 
-    log_all_pairs_in_array(&arrs);
+    // log_all_pairs_in_array(&arrs);
+
+    let arrs1 = vec!['a', 'b', 'c', 'f', 'g'];
+
+    let arrs2 = vec!['w', 'i', 'z', 't', 'u'];
+
+    let is_contains = contains_common_items(&arrs1, &arrs2);
+    if is_contains {
+        println!("Contains common items");
+    } else {
+        println!("Does not contain common items");
+    }
 }
 
 fn find_nemo(names: &Vec<&str>){
