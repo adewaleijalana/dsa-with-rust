@@ -14,9 +14,14 @@ fn main() {
     // println!("Element at index 1: {:?}", arr.get(1));
     // println!("Element at index 3: {:?}", arr.get(3));
 
-    let str = "Hello, I am Rose!";
-    // let rose = "";
-    // let reversed = arrays::reverse_str::reverse_str(str);
-    let reversed = arrays::reverse_str::reverse_str_2(str);
-    println!("Original: {} | Reversed: {}", str, reversed);
+    // let str = "Hello, I am Rose!";
+    // // let rose = "";
+    // // let reversed = arrays::reverse_str::reverse_str(str);
+    // let reversed = arrays::reverse_str::reverse_str_2(str);
+    // println!("Original: {} | Reversed: {}", str, reversed);
+
+    let arr1 = [1, 3, 5, 7];
+    let arr2 = [2, 4];
+    let merged = arrays::merge_sorted_arrays::merge_sorted_arrays(&arr1, &arr2);
+    println!("Merged sorted array: {:?}", merged);
 }
