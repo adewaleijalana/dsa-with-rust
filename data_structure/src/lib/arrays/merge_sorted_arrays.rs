@@ -16,13 +16,13 @@ pub fn merge_sorted_arrays(arr1: &[i32], arr2: &[i32]) -> Vec<i32> {
     println!("i is: {};  j is: {}", i, j);
 
     while i < arr1.len() {
-      println!("arr1[{}]: {}", i, arr1[i]);
+        println!("arr1[{}]: {}", i, arr1[i]);
         merged.push(arr1[i]);
         i += 1;
     }
 
     while j < arr2.len() {
-      println!("arr2[{}]: {}", j, arr2[j]);
+        println!("arr2[{}]: {}", j, arr2[j]);
         merged.push(arr2[j]);
         j += 1;
     }

@@ -5,9 +5,9 @@ edition = "2024"
 
 [dependencies]
 
-# [[bin]]
-# name = "data_structure"
-# path = "src/bin/main.rs"
+[[bin]]
+name = "data_structure"
+path = "src/bin/main.rs"
 
 [lib]
 name = "data_structure_lib"

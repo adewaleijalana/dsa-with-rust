@@ -69,23 +69,27 @@ pub fn custom_into_iterator() {
 }
 
 struct Pixel {
-  r: i8,
-  g: i8,
-  b: i8,
+    r: i8,
+    g: i8,
+    b: i8,
 }
 
 impl IntoIterator for Pixel {
-  type Item = i8; // this needs to be fixed 
-  type IntoIter = std::vec::IntoIter<Self::Item>;
+    type Item = i8; // this needs to be fixed 
+    type IntoIter = std::vec::IntoIter<Self::Item>;
 
-  fn into_iter(self) -> Self::IntoIter {
-      /* The function needs to be completed */
-      vec![self.r, self.g, self.b].into_iter()
-  }
+    fn into_iter(self) -> Self::IntoIter {
+        /* The function needs to be completed */
+        vec![self.r, self.g, self.b].into_iter()
+    }
 }
 
 pub fn custom_pixel_into_iterator() {
-    let pixel = Pixel { r: 25, g: 55, b: 76 };
+    let pixel = Pixel {
+        r: 25,
+        g: 55,
+        b: 76,
+    };
     let mut pixel_iterator = pixel.into_iter();
 
     while let Some(value) = pixel_iterator.next() {

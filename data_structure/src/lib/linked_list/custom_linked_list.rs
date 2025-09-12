@@ -1,3 +1,5 @@
+#![allow(dead_code, unused_imports, unused_variables, unused_must_use)]
+
 type Pointer = Option<Box<Node>>;
 
 #[derive(Debug)]
@@ -39,7 +41,6 @@ impl LinkList {
     fn peek(&self) -> Option<i32> {
         self.head.as_ref().map(|node| node.element)
     }
-    
 }
 
 pub fn create_custom_linked_list() {
@@ -62,29 +63,28 @@ pub fn create_custom_linked_list() {
             })),
         })),
     };
-
 }
 
 pub fn create_custom_link_list() {
-  let linked_list = LinkList {
-    head: Some(Box::new(Node {
-        element: 100,
-        next: Some(Box::new(Node {
-            element: 223,
+    let linked_list = LinkList {
+        head: Some(Box::new(Node {
+            element: 100,
             next: Some(Box::new(Node {
-                element: 456,
-                next: None,
+                element: 223,
+                next: Some(Box::new(Node {
+                    element: 456,
+                    next: None,
+                })),
             })),
         })),
-    })),
-};
+    };
 
-  let mut current = linked_list.head;
+    let mut current = linked_list.head;
 
-  while let Some(node) = current {
-      println!("{}", node.element);
-      current = node.next;
-  }
+    while let Some(node) = current {
+        println!("{}", node.element);
+        current = node.next;
+    }
 
-  // println!("{:?}", &linked_list.head.unwrap().next.unwrap().next.unwrap().element);
+    // println!("{:?}", &linked_list.head.unwrap().next.unwrap().next.unwrap().element);
 }

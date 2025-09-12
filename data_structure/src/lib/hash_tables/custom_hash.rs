@@ -3,7 +3,6 @@
 //     length: usize,
 // }
 
-
 // impl<K: Eq + std::hash::Hash, V> CustomHash<K, V> {
 //     pub fn new(size: usize) -> Self {
 //         CustomHash {
@@ -30,7 +29,7 @@
 //     fn hash(&self, key: &K) -> usize {
 //       use std::hash::{Hash, Hasher};
 //       use std::collections::hash_map::DefaultHasher;
-  
+
 //       let mut hasher = DefaultHasher::new();
 //       key.hash(&mut hasher);
 //       (hasher.finish() as usize) % self.data.len()
