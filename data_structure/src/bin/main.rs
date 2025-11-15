@@ -1,4 +1,4 @@
-#![allow(dead_code, unused_imports, unused_variables, unused_must_use)]
+#![allow(dead_code, unused_imports, unused_variables, unused_must_use, unused_mut, clippy::useless_vec)]
 
 use data_structure_lib::arrays::{
     merge_sorted_arrays::merge_sorted_arrays, reverse_str::reverse_str_2,
@@ -104,26 +104,26 @@ fn second_largest(arr: &[i32]) -> i32 {
     let mut largest = -1;
     let mut second_largest = -1;
 
-    // for num in arr {
-    //     if *num > largest {
-    //         second_largest = largest;
-    //         largest = *num;
-    //     } else if *num < largest && *num > second_largest {
-    //         second_largest = *num;
-    //     }
-    // }
-
-    for i in 0..arr.len() {
-        let a = arr[i];
-        if a > largest {
+    for num in arr {
+        if *num > largest {
             second_largest = largest;
-            largest = a;
-        } else if a < largest && a > second_largest {
-            second_largest = a;
+            largest = *num;
+        } else if *num < largest && *num > second_largest {
+            second_largest = *num;
         }
     }
 
-    return second_largest;
+    // for i in 0..arr.len() {
+    //     let a = arr[i];
+    //     if a > largest {
+    //         second_largest = largest;
+    //         largest = a;
+    //     } else if a < largest && a > second_largest {
+    //         second_largest = a;
+    //     }
+    // }
+
+    second_largest
 }
 
 fn test_main() {
