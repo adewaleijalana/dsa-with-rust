@@ -3,6 +3,7 @@
 use data_structure_lib::arrays::{
     merge_sorted_arrays::merge_sorted_arrays, reverse_str::reverse_str_2,
 };
+use std::fs::File;
 use std::{cell::RefCell, thread};
 
 use data_structure_lib::arrays::custom_array::CustomArray;
@@ -12,7 +13,21 @@ use data_structure_lib::custom_iterator::{
 use data_structure_lib::linked_list::custom_linked_list::create_custom_link_list;
 use data_structure_lib::sorting_alg::selection_sort::selection_sort;
 
+use std::collections::HashMap;
+use std::process;
+
 fn main() {
+    // let file = match File::open("text.txtx") {
+    //     Ok(file) => file,
+    //     Err(e) => {
+    //         eprintln!("Error opening file: {:?}", e);
+    //         process::exit(1)
+    //     }
+    // };
+
+    // let value = map.get(&one).cloned().unwrap_or("Not Found".to_string());
+
+    // map.entry("key".to_string()).or_insert("default".to_string());
     // let mut arr = CustomArray::new();
     // arr.add(1);
     // arr.add(2);
@@ -43,7 +58,8 @@ fn main() {
     // }
     // println!("{:?}", vec_1);
 
-    // let numbers = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // let mut numbers = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // println!("{:?}", numbers.pop());
     // let mut result = 0;
 
     // /* The code in the for loop needs to be replaced */
@@ -74,8 +90,40 @@ fn main() {
     // sum_thread();
 
     let mut arr = [64, 25, 12, 22, 11];
-    selection_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    // selection_sort(&mut arr);
+    // println!("Sorted array: {:?}", arr);
+
+    println!("Second largest element: {}", second_largest(&arr));
+}
+
+fn second_largest(arr: &[i32]) -> i32 {
+    if arr.len() < 2 {
+        return -1;
+    }
+
+    let mut largest = -1;
+    let mut second_largest = -1;
+
+    // for num in arr {
+    //     if *num > largest {
+    //         second_largest = largest;
+    //         largest = *num;
+    //     } else if *num < largest && *num > second_largest {
+    //         second_largest = *num;
+    //     }
+    // }
+
+    for i in 0..arr.len() {
+        let a = arr[i];
+        if a > largest {
+            second_largest = largest;
+            largest = a;
+        } else if a < largest && a > second_largest {
+            second_largest = a;
+        }
+    }
+
+    return second_largest;
 }
 
 fn test_main() {
