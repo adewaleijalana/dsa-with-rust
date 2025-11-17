@@ -12,6 +12,7 @@ use data_structure_lib::custom_iterator::{
 };
 use data_structure_lib::linked_list::custom_linked_list::create_custom_link_list;
 use data_structure_lib::sorting_alg::selection_sort::selection_sort;
+use data_structure_lib::functions::{second_largest, double_numbers, move_zeroes};
 
 use std::collections::HashMap;
 use std::process;
@@ -89,42 +90,19 @@ fn main() {
     // take_name()
     // sum_thread();
 
-    let mut arr = [64, 25, 12, 22, 11];
-    // selection_sort(&mut arr);
-    // println!("Sorted array: {:?}", arr);
+    let mut arr = [0, 64, 0, 4, 025, 12, 0, 22, 11];
+    // // selection_sort(&mut arr);
+    // // println!("Sorted array: {:?}", arr);
+    println!("arrays before moving zeros: {arr:?}");
+    move_zeroes(&mut arr);
 
-    println!("Second largest element: {}", second_largest(&arr));
+    println!("arrays after moving zeros: {arr:?}");
+
+    // println!("Second largest element: {}", second_largest(&arr));
+    // println!("Double number: {}", double_numbers())
+    
 }
 
-fn second_largest(arr: &[i32]) -> i32 {
-    if arr.len() < 2 {
-        return -1;
-    }
-
-    let mut largest = -1;
-    let mut second_largest = -1;
-
-    for num in arr {
-        if *num > largest {
-            second_largest = largest;
-            largest = *num;
-        } else if *num < largest && *num > second_largest {
-            second_largest = *num;
-        }
-    }
-
-    // for i in 0..arr.len() {
-    //     let a = arr[i];
-    //     if a > largest {
-    //         second_largest = largest;
-    //         largest = a;
-    //     } else if a < largest && a > second_largest {
-    //         second_largest = a;
-    //     }
-    // }
-
-    second_largest
-}
 
 fn test_main() {
     let multiplier = 2;
