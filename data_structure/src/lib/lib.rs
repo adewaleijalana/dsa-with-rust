@@ -1,9 +1,9 @@
-pub mod arrays;
-pub mod custom_iterator;
-pub mod hash_tables;
-pub mod linked_list;
-pub mod sorting_alg;
-pub mod functions;
+mod arrays;
+mod custom_iterator;
+mod hash_tables;
+mod linked_list;
+mod sorting_alg;
+mod functions;
 
 pub use arrays::*;
 pub use custom_iterator::*;

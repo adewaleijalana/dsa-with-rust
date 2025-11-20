@@ -61,3 +61,27 @@ pub fn move_zeroes(arr: &mut [i32]){
       
   }
 }
+
+pub fn reverse_array(arr: &mut [i32]) {
+
+    let arr_length = arr.len();
+
+    if arr_length == 0 || arr_length == 1 {
+        return;
+    }
+
+    if  arr_length == 2{
+        let temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+        // arr.swap(0, 1);
+        return;
+    }
+
+    let n = arr_length / 2;
+    for i in 0..n {
+        let temp = arr[i];
+        arr[i] = arr[arr_length - 1 - i];
+        arr[arr_length - 1 - i] = temp;
+    }
+}

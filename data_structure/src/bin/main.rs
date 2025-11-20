@@ -1,18 +1,22 @@
 #![allow(dead_code, unused_imports, unused_variables, unused_must_use, unused_mut, clippy::useless_vec)]
 
-use data_structure_lib::arrays::{
-    merge_sorted_arrays::merge_sorted_arrays, reverse_str::reverse_str_2,
-};
+// use data_structure_lib::arrays::{
+//     merge_sorted_arrays::merge_sorted_arrays, reverse_str::reverse_str_2,
+// };
+
+use data_structure_lib::merge_sorted_arrays;
+
 use std::fs::File;
 use std::{cell::RefCell, thread};
 
-use data_structure_lib::arrays::custom_array::CustomArray;
-use data_structure_lib::custom_iterator::{
+use data_structure_lib::CustomArray;
+
+use data_structure_lib::{
     custom_into_iterator, custom_iterator, custom_pixel_into_iterator,
 };
-use data_structure_lib::linked_list::custom_linked_list::create_custom_link_list;
-use data_structure_lib::sorting_alg::selection_sort::selection_sort;
-use data_structure_lib::functions::{second_largest, double_numbers, move_zeroes};
+use data_structure_lib::create_custom_link_list;
+use data_structure_lib::selection_sort;
+use data_structure_lib::{second_largest, double_numbers, move_zeroes, reverse_array};
 
 use std::collections::HashMap;
 use std::process;
@@ -93,10 +97,11 @@ fn main() {
     let mut arr = [0, 64, 0, 4, 025, 12, 0, 22, 11];
     // // selection_sort(&mut arr);
     // // println!("Sorted array: {:?}", arr);
-    println!("arrays before moving zeros: {arr:?}");
-    move_zeroes(&mut arr);
+    println!("arrays before reversing: {arr:?}");
+    // move_zeroes(&mut arr);
+    reverse_array(&mut arr);
 
-    println!("arrays after moving zeros: {arr:?}");
+    println!("arrays after reversing: {arr:?}");
 
     // println!("Second largest element: {}", second_largest(&arr));
     // println!("Double number: {}", double_numbers())
