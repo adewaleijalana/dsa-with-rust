@@ -1,4 +1,7 @@
-use std::{io::{self}, mem::swap};
+use std::{
+    io::{self},
+    mem::swap,
+};
 
 pub fn double_numbers() -> u8 {
     let input = io::stdin();
@@ -11,9 +14,9 @@ pub fn double_numbers() -> u8 {
     let double_digit = num * 2;
 
     if double_digit >= 10 {
-      1 + double_digit % 10
+        1 + double_digit % 10
     } else {
-      double_digit
+        double_digit
     }
 }
 
@@ -47,30 +50,28 @@ pub fn second_largest(arr: &[i32]) -> i32 {
     second_largest
 }
 
-pub fn move_zeroes(arr: &mut [i32]){
-  let mut non_zero_count = 0;
-  for i in 0..arr.len() {
-    if arr[i] != 0 {
-      // arr.swap(i, non_zero_count);
-      let temp = arr[i];
-      arr[i] = arr[non_zero_count];
-      arr[non_zero_count] = temp;
-      
-      non_zero_count += 1;
+pub fn move_zeroes(arr: &mut [i32]) {
+    let mut non_zero_count = 0;
+    for i in 0..arr.len() {
+        if arr[i] != 0 {
+            // arr.swap(i, non_zero_count);
+            let temp = arr[i];
+            arr[i] = arr[non_zero_count];
+            arr[non_zero_count] = temp;
+
+            non_zero_count += 1;
+        }
     }
-      
-  }
 }
 
 pub fn reverse_array(arr: &mut [i32]) {
-
     let arr_length = arr.len();
 
     if arr_length == 0 || arr_length == 1 {
         return;
     }
 
-    if  arr_length == 2{
+    if arr_length == 2 {
         let temp = arr[0];
         arr[0] = arr[1];
         arr[1] = temp;
@@ -84,4 +85,25 @@ pub fn reverse_array(arr: &mut [i32]) {
         arr[i] = arr[arr_length - 1 - i];
         arr[arr_length - 1 - i] = temp;
     }
+}
+
+pub fn array_left_rotation(arr: &mut [i32], rot: i32) {
+    let len = arr.len();
+    if len == 0 || len == 1 {
+        return;
+    }
+
+    let rotation = rot % len as i32;
+    rotate(arr, 0, rotation - 1);
+    rotate(arr, rotation, len as i32 - 1);
+    rotate(arr, 0, len as i32 - 1);
+}
+
+fn rotate(arr: &mut [i32], mut start: i32, mut end: i32) {
+  while start < end {
+      arr.swap(start as usize, end as usize);
+      start += 1;
+      end -= 1;
+  }
+    
 }
