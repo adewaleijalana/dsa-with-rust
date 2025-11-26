@@ -7,11 +7,12 @@
     clippy::useless_vec
 )]
 
+
 // use data_structure_lib::arrays::{
 //     merge_sorted_arrays::merge_sorted_arrays, reverse_str::reverse_str_2,
 // };
 
-use data_structure_lib::merge_sorted_arrays;
+use data_structure_lib::{merge_sorted_arrays, mode};
 
 use std::fs::File;
 use std::{cell::RefCell, thread};
@@ -99,7 +100,7 @@ fn main() {
     // take_name()
     // sum_thread();
 
-    let mut arr = [0, 64, 0, 4, 25, 12, 0, 22, 11];
+    let mut arr = [10, 64, 4, 25, 12, 11, 22, 25, 25, 10, 10, 10];
     // // selection_sort(&mut arr);
     // // println!("Sorted array: {:?}", arr);
     // println!("arrays before reversing: {arr:?}");
@@ -108,13 +109,15 @@ fn main() {
 
     // println!("arrays after reversing: {arr:?}");
 
-    let rotation = 3;
+    // let rotation = 3;
 
-    println!("arrays before rotating by: {rotation} | {arr:?}");
-    // move_zeroes(&mut arr);
-    array_left_rotation(&mut arr, rotation);
+    // println!("arrays before rotating by: {rotation} | {arr:?}");
+    // // move_zeroes(&mut arr);
+    // array_left_rotation(&mut arr, rotation);
 
-    println!("arrays after rotating by: {rotation} | {arr:?}");
+    // println!("arrays after rotating by: {rotation} | {arr:?}");
+
+    println!("Mode is: {}", mode(&arr))
 
     // println!("Second largest element: {}", second_largest(&arr));
     // println!("Double number: {}", double_numbers())

@@ -1,6 +1,15 @@
+#![allow(
+    dead_code,
+    unused_imports,
+    unused_variables,
+    unused_must_use,
+    unused_mut,
+    clippy::useless_vec
+)]
+
+
 use std::{
-    io::{self},
-    mem::swap,
+    collections::HashMap, io::{self}, mem::swap
 };
 
 pub fn double_numbers() -> u8 {
@@ -106,4 +115,41 @@ fn rotate(arr: &mut [i32], mut start: i32, mut end: i32) {
       end -= 1;
   }
     
+}
+
+pub fn mode(arr: &[i32]) -> i32 {
+
+  //let mut arr = [0, 64, 0, 4, 25, 12, 11, 22, 11, 11];
+
+  let mut mode = 1;
+  let mut key = 1;
+
+  let mut hash = HashMap::<&i32, i32>::new();
+  // for i in arr {
+  //     hash.entry(i).and_modify(|e| {
+  //       *e += 1;
+  //     }).or_insert(1);
+  // }
+
+  for i in arr {
+     if hash.contains_key(i) {
+         println!("{}", hash[i]);
+         hash.insert(i, hash[i] + 1);
+     }else {
+         hash.insert(i, 1);
+     }
+  }
+
+  for (k, v) in  hash.iter(){
+    println!("key: {} | value: {}", k, v);
+      if *v > mode {
+        println!("key: {} | value: {} : mode: {}", k, v, mode);
+          mode = *v;
+          key = **k;
+      }
+  }
+
+  println!("Mode is now: {}", mode);
+  
+  key
 }
