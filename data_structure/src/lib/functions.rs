@@ -7,9 +7,10 @@
     clippy::useless_vec
 )]
 
-
 use std::{
-    collections::HashMap, io::{self}, mem::swap
+    collections::HashMap,
+    io::{self},
+    mem::swap,
 };
 
 pub fn double_numbers() -> u8 {
@@ -109,47 +110,55 @@ pub fn array_left_rotation(arr: &mut [i32], rot: i32) {
 }
 
 fn rotate(arr: &mut [i32], mut start: i32, mut end: i32) {
-  while start < end {
-      arr.swap(start as usize, end as usize);
-      start += 1;
-      end -= 1;
-  }
-    
+    while start < end {
+        arr.swap(start as usize, end as usize);
+        start += 1;
+        end -= 1;
+    }
 }
 
 pub fn mode(arr: &[i32]) -> i32 {
+    //let mut arr = [0, 64, 0, 4, 25, 12, 11, 22, 11, 11];
 
-  //let mut arr = [0, 64, 0, 4, 25, 12, 11, 22, 11, 11];
+    // let mut mode = 1;
+    // let mut key = 1;
 
-  let mut mode = 1;
-  let mut key = 1;
+    let mut hash = HashMap::<&i32, i32>::new();
+    for i in arr {
+        hash.entry(i)
+            .and_modify(|e| {
+                *e += 1;
+            })
+            .or_insert(1);
 
-  let mut hash = HashMap::<&i32, i32>::new();
-  // for i in arr {
-  //     hash.entry(i).and_modify(|e| {
-  //       *e += 1;
-  //     }).or_insert(1);
-  // }
+        // *hash.entry(i).or_insert(0) += 1;
+    }
 
-  for i in arr {
-     if hash.contains_key(i) {
-         println!("{}", hash[i]);
-         hash.insert(i, hash[i] + 1);
-     }else {
-         hash.insert(i, 1);
-     }
-  }
+    // for i in arr {
+    //    if hash.contains_key(i) {
+    //        println!("{}", hash[i]);
+    //        hash.insert(i, hash[i] + 1);
+    //    }else {
+    //        hash.insert(i, 1);
+    //    }
+    // }
 
-  for (k, v) in  hash.iter(){
-    println!("key: {} | value: {}", k, v);
-      if *v > mode {
-        println!("key: {} | value: {} : mode: {}", k, v, mode);
-          mode = *v;
-          key = **k;
-      }
-  }
+    // for (k, v) in  hash.iter(){
+    //   println!("key: {} | value: {}", k, v);
+    //     if *v > mode {
+    //       println!("key: {} | value: {} : mode: {}", k, v, mode);
+    //         mode = *v;
+    //         key = **k;
+    //     }
+    // }
 
-  println!("Mode is now: {}", mode);
-  
-  key
+    let max_by_key = hash
+        .into_iter()
+        .max_by_key(|&(k, v)| v)
+        .map(|(k, v)| *k)
+        .unwrap();
+
+    println!("Mode is now: {}", max_by_key);
+
+    max_by_key
 }
