@@ -7,7 +7,6 @@
     clippy::useless_vec
 )]
 
-
 // use data_structure_lib::arrays::{
 //     merge_sorted_arrays::merge_sorted_arrays, reverse_str::reverse_str_2,
 // };
@@ -21,8 +20,10 @@ use data_structure_lib::CustomArray;
 
 use data_structure_lib::create_custom_link_list;
 use data_structure_lib::selection_sort;
+use data_structure_lib::{
+    array_left_rotation, double_numbers, move_zeroes, multi_array_ex, reverse_array, second_largest,
+};
 use data_structure_lib::{custom_into_iterator, custom_iterator, custom_pixel_into_iterator};
-use data_structure_lib::{double_numbers, move_zeroes, reverse_array, second_largest, array_left_rotation};
 
 use std::collections::HashMap;
 use std::process;
@@ -117,10 +118,12 @@ fn main() {
 
     // println!("arrays after rotating by: {rotation} | {arr:?}");
 
-    println!("Mode is: {}", mode(&arr))
+    // println!("Mode is: {}", mode(&arr))
 
     // println!("Second largest element: {}", second_largest(&arr));
     // println!("Double number: {}", double_numbers())
+
+    multi_array_ex();
 }
 
 fn test_main() {

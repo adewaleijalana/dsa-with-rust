@@ -162,3 +162,15 @@ pub fn mode(arr: &[i32]) -> i32 {
 
     max_by_key
 }
+
+pub fn multi_array_ex() {
+    let arr1 = [2; 4];
+
+    let multi_arr = [[0; 4]; 5];
+
+    for i in 0..multi_arr.len() {
+        for j in 0..multi_arr[i].len() {
+            println!("[{i}][{j}]")
+        }
+    }
+}
