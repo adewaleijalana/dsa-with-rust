@@ -21,7 +21,8 @@ use data_structure_lib::CustomArray;
 use data_structure_lib::create_custom_link_list;
 use data_structure_lib::selection_sort;
 use data_structure_lib::{
-    array_left_rotation, double_numbers, move_zeroes, multi_array_ex, reverse_array, second_largest,
+    array_left_rotation, double_numbers, move_zeroes, multi_array_ex, next_permutation,
+    reverse_array, second_largest,
 };
 use data_structure_lib::{custom_into_iterator, custom_iterator, custom_pixel_into_iterator};
 
@@ -123,7 +124,8 @@ fn main() {
     // println!("Second largest element: {}", second_largest(&arr));
     // println!("Double number: {}", double_numbers())
 
-    multi_array_ex();
+    // multi_array_ex();
+    next_permutation();
 }
 
 fn test_main() {

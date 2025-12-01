@@ -174,3 +174,24 @@ pub fn multi_array_ex() {
         }
     }
 }
+
+pub fn next_permutation() {
+    // let a = [1, 2, 3, 6, 5, 4];
+    // let a = [1, 2, 3, 4];
+    let a = [4, 3, 2, 1];
+    let n = a.len();
+    if n <= 1{
+        return;
+    }
+    let mut index = 0;
+    for i in (0..a.len()).rev() {
+        println!("i:{} - value: {}", i, a[i]);
+        if a[i] > a[i - 1] {
+            println!("true: {}", a[i - 1]);
+            index = i - 1;
+            break;
+        }
+    }
+
+    println!("Pivot index: {}", index)
+}
