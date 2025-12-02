@@ -124,8 +124,8 @@ fn main() {
     // println!("Second largest element: {}", second_largest(&arr));
     // println!("Double number: {}", double_numbers())
 
-    // multi_array_ex();
-    next_permutation();
+    multi_array_ex();
+    // next_permutation();
 }
 
 fn test_main() {

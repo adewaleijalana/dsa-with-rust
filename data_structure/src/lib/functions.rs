@@ -168,9 +168,18 @@ pub fn multi_array_ex() {
 
     let multi_arr = [[0; 4]; 5];
 
+    // for i in 0..multi_arr.len() {
+    //     for j in 0..multi_arr[i].len() {
+    //         println!("[{i}][{j}]")
+    //     }
+    // }
+
+    let multi_arr = [[[0; 4]; 4]; 5];
     for i in 0..multi_arr.len() {
         for j in 0..multi_arr[i].len() {
-            println!("[{i}][{j}]")
+            for k in 0..multi_arr[i][j].len() {
+                println!("[{i}][{j}][{k}] | value: {}", multi_arr[i][j][k]);
+            }
         }
     }
 }
@@ -180,7 +189,7 @@ pub fn next_permutation() {
     // let a = [1, 2, 3, 4];
     let a = [4, 3, 2, 1];
     let n = a.len();
-    if n <= 1{
+    if n <= 1 {
         return;
     }
     let mut index = 0;
