@@ -13,6 +13,8 @@ use std::{
     mem::swap,
 };
 
+use hex::{encode, decode};
+
 pub fn double_numbers() -> u8 {
     let input = io::stdin();
     println!("Enter a digit between 0-9");
@@ -166,7 +168,7 @@ pub fn mode(arr: &[i32]) -> i32 {
 pub fn multi_array_ex() {
     let arr1 = [2; 4];
 
-    let multi_arr = [[0; 4]; 5];
+    // let multi_arr = [[0; 4]; 5];
 
     // for i in 0..multi_arr.len() {
     //     for j in 0..multi_arr[i].len() {
@@ -181,6 +183,11 @@ pub fn multi_array_ex() {
                 println!("[{i}][{j}][{k}] | value: {}", multi_arr[i][j][k]);
             }
         }
+    }
+
+    let flatten_array = multi_arr.iter().flatten().flatten();
+    for val in  flatten_array{
+        println!("{val}")
     }
 }
 
@@ -203,4 +210,14 @@ pub fn next_permutation() {
     }
 
     println!("Pivot index: {}", index)
+}
+
+pub fn xor_vectors(a: &str, b: &str) -> Vec<u8> {
+
+    let byte_one = decode(a).unwrap();
+    let byte_two = decode(b).unwrap();
+    byte_one.iter()
+     .zip(byte_one.iter()) // Pair elements from both slices
+     .map(|(&x1, &x2)| x1 ^ x2) // Apply bitwise XOR to each pair
+     .collect() // Collect the results into a new Vec<u8>
 }

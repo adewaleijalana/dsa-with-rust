@@ -22,7 +22,7 @@ use data_structure_lib::create_custom_link_list;
 use data_structure_lib::selection_sort;
 use data_structure_lib::{
     array_left_rotation, double_numbers, move_zeroes, multi_array_ex, next_permutation,
-    reverse_array, second_largest,
+    reverse_array, second_largest, xor_vectors,
 };
 use data_structure_lib::{custom_into_iterator, custom_iterator, custom_pixel_into_iterator};
 
@@ -102,7 +102,7 @@ fn main() {
     // take_name()
     // sum_thread();
 
-    let mut arr = [10, 64, 4, 25, 12, 11, 22, 25, 25, 10, 10, 10];
+    // let mut arr = [10, 64, 4, 25, 12, 11, 22, 25, 25, 10, 10, 10];
     // // selection_sort(&mut arr);
     // // println!("Sorted array: {:?}", arr);
     // println!("arrays before reversing: {arr:?}");
@@ -124,8 +124,16 @@ fn main() {
     // println!("Second largest element: {}", second_largest(&arr));
     // println!("Double number: {}", double_numbers())
 
-    multi_array_ex();
+    // multi_array_ex();
     // next_permutation();
+
+    let priv_key = "6eb7e833144102fcf9a20887fb14ad59cfe9f13f5ef77aea7bd9c98fdda0a1dc";
+
+    let message = "4e97c85b6035728fc38d27e39267ce36bd8ddf5839d834d22fb4fbf5bff5c2ee";
+
+    let result = xor_vectors(priv_key, message);
+
+    println!("result {}", String::from_utf8(result).unwrap());
 }
 
 fn test_main() {
