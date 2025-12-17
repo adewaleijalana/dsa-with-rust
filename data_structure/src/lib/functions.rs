@@ -217,7 +217,7 @@ pub fn xor_vectors(a: &str, b: &str) -> Vec<u8> {
     let byte_one = decode(a).unwrap();
     let byte_two = decode(b).unwrap();
     byte_one.iter()
-     .zip(byte_one.iter()) // Pair elements from both slices
+     .zip(byte_two.iter()) // Pair elements from both slices
      .map(|(&x1, &x2)| x1 ^ x2) // Apply bitwise XOR to each pair
      .collect() // Collect the results into a new Vec<u8>
 }
