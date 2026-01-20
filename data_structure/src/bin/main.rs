@@ -20,10 +20,7 @@ use data_structure_lib::CustomArray;
 
 use data_structure_lib::create_custom_link_list;
 use data_structure_lib::selection_sort;
-use data_structure_lib::{
-    array_left_rotation, double_numbers, move_zeroes, multi_array_ex, next_permutation,
-    reverse_array, second_largest, xor_vectors,
-};
+use data_structure_lib::*;
 use data_structure_lib::{custom_into_iterator, custom_iterator, custom_pixel_into_iterator};
 
 use std::collections::HashMap;
@@ -127,13 +124,36 @@ fn main() {
     // multi_array_ex();
     // next_permutation();
 
-    let priv_key = "6eb7e833144102fcf9a20887fb14ad59cfe9f13f5ef77aea7bd9c98fdda0a1dc";
+    // let priv_key = "6eb7e833144102fcf9a20887fb14ad59cfe9f13f5ef77aea7bd9c98fdda0a1dc";
 
-    let message = "4e97c85b6035728fc38d27e39267ce36bd8ddf5839d834d22fb4fbf5bff5c2ee";
+    // let message = "4e97c85b6035728fc38d27e39267ce36bd8ddf5839d834d22fb4fbf5bff5c2ee";
 
-    let result = xor_vectors(priv_key, message);
+    // let result = xor_vectors(priv_key, message);
 
-    println!("result {}", String::from_utf8(result).unwrap());
+    // println!("result {}", String::from_utf8(result).unwrap());
+
+    // decode_hex_string("01000000");
+
+    // 6e b7 e8 33
+
+    // decode_hex_string("6eb7e833");
+
+    //47304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548ab5fb8cd410220181522ec8eca07de48 60a4acdd12909d831cc56cbbac4622082221a8768d1d0901
+    // decode_hex_string("47304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d1d0901");
+
+    //00ca9a3b00000000
+    // decode_hex_string("00ca9a3b00000000");
+    // //00286bee00000000
+    // decode_hex_string_("00286bee00000000");
+
+    // decode_hex_string_("c027654400000000");
+
+    // decode_hex_string_("f07e0e0000000000");
+    
+
+    compact_size("21");
+    compact_size("FDE803");
+    compact_size("FF00E40B5402000000");
 }
 
 fn test_main() {

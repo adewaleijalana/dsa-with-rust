@@ -9,11 +9,11 @@
 
 use std::{
     collections::HashMap,
-    io::{self},
+    io::{self, Bytes, Read},
     mem::swap,
 };
 
-use hex::{encode, decode};
+use hex::{decode, encode};
 
 pub fn double_numbers() -> u8 {
     let input = io::stdin();
@@ -186,7 +186,7 @@ pub fn multi_array_ex() {
     }
 
     let flatten_array = multi_arr.iter().flatten().flatten();
-    for val in  flatten_array{
+    for val in flatten_array {
         println!("{val}")
     }
 }
@@ -213,11 +213,70 @@ pub fn next_permutation() {
 }
 
 pub fn xor_vectors(a: &str, b: &str) -> Vec<u8> {
-
     let byte_one = decode(a).unwrap();
     let byte_two = decode(b).unwrap();
-    byte_one.iter()
-     .zip(byte_two.iter()) // Pair elements from both slices
-     .map(|(&x1, &x2)| x1 ^ x2) // Apply bitwise XOR to each pair
-     .collect() // Collect the results into a new Vec<u8>
+    byte_one
+        .iter()
+        .zip(byte_two.iter()) // Pair elements from both slices
+        .map(|(&x1, &x2)| x1 ^ x2) // Apply bitwise XOR to each pair
+        .collect() // Collect the results into a new Vec<u8>
+}
+
+pub fn decode_hex_string(hex_string: &str) {
+    let byte_one = decode(hex_string).unwrap();
+    println!("{byte_one:?} with length: {}", byte_one.len());
+
+    let value = i64::from_le_bytes(byte_one.try_into().unwrap());
+
+    //1000_000_000
+    println!("value: {}", value);
+}
+
+pub fn decode_hex_string_(hex_string: &str) {
+    let byte_one = decode(hex_string).unwrap();
+    println!("{byte_one:?} with length: {}", byte_one.len());
+
+    let mut buf = [0; 8];
+
+    byte_one.as_slice().read_exact(&mut buf);
+
+    let value = i64::from_le_bytes(buf);
+
+    //1000_000_000
+    println!("value: {}", value);
+}
+
+pub fn compact_size(hex_string: &str) {
+    let mut byte_one = decode(hex_string).unwrap();
+    println!("{byte_one:?} with length: {}", byte_one.len());
+
+    let mut buf = [0u8; 1];
+    let mut bytes = byte_one.as_slice();
+    bytes.read_exact(&mut buf);
+    let n = buf[0];
+    println!("n: {}", n);
+
+    match n {
+        0xFF => {
+            let mut buf = [0; 8];
+            bytes.read_exact(&mut buf);
+            let value = u64::from_le_bytes(buf);
+            println!("u64 value: {}", value);
+        },
+        0xFE => {
+            let mut buf = [0; 4];
+            bytes.read_exact(&mut buf);
+            let value = u32::from_le_bytes(buf);
+            println!("u32 value: {}", value);
+        },
+        0xFD => {
+            let mut buf = [0; 2];
+            bytes.read_exact(&mut buf);
+            let value= u16::from_le_bytes(buf);
+            println!("u16 value: {}", value);
+        },
+        n => {
+            println!("u8 value: {}", n);
+        }
+    }
 }
