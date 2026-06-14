@@ -151,9 +151,13 @@ fn main() {
     // decode_hex_string_("f07e0e0000000000");
     
 
-    compact_size("21");
-    compact_size("FDE803");
-    compact_size("FF00E40B5402000000");
+    //fd190a
+    // compact_size("21");
+    // compact_size("FDE803");
+    // compact_size("fd190a");
+    // compact_size("FF00E40B5402000000");
+
+    test_mut_ref()
 }
 
 fn test_main() {

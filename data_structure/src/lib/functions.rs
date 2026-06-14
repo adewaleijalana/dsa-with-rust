@@ -8,7 +8,7 @@
 )]
 
 use std::{
-    collections::HashMap,
+    collections::{HashMap, LinkedList},
     io::{self, Bytes, Read},
     mem::swap,
 };
@@ -279,4 +279,39 @@ pub fn compact_size(hex_string: &str) {
             println!("u8 value: {}", n);
         }
     }
+}
+
+fn test() {
+    //  let arr: [u8; 13] = (1,1,1,1,1,1,1,1,1,1,1,1,1).into();
+
+      let arr: [u8; 3] = (1, 1, 1).into();
+
+       let v: Vec<u8> = [1,2,3].into();
+
+        let list: LinkedList<_> = [1, 2, 3, 4].into();
+
+    let penguin_data = "\
+    common name,length (cm) 
+    Little penguin,33
+    Fiordland penguin,60 
+    Invalid,data ";
+
+    let records = penguin_data.lines();
+}
+
+
+pub fn test_mut_ref() {
+    let mut first = 10;
+    let mut second = 20;
+
+    let mut current: &mut i32 = &mut first;
+
+    *current += 1;
+
+    current = &mut second;
+
+    *current += 1;
+
+    println!("first = {}", first);
+    println!("second = {}", second);
 }
