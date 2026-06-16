@@ -157,7 +157,8 @@ fn main() {
     // compact_size("fd190a");
     // compact_size("FF00E40B5402000000");
 
-    test_mut_ref()
+    // test_mut_ref();
+    test_assignment();
 }
 
 fn test_main() {

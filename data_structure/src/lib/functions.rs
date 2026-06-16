@@ -10,7 +10,7 @@
 use std::{
     collections::{HashMap, LinkedList},
     io::{self, Bytes, Read},
-    mem::swap,
+    mem::swap, rc::Rc, sync::{Arc, Mutex},
 };
 
 use hex::{decode, encode};
@@ -314,4 +314,12 @@ pub fn test_mut_ref() {
 
     println!("first = {}", first);
     println!("second = {}", second);
+}
+
+pub fn test_assignment(){
+    let a = 10;
+    let b = Box::new(20);
+    let c = Rc::new(Box::new(30));
+    let d = Arc::new(Mutex::new(40));
+    println!("a: {:?}, b: {:?}, c: {:?}, d: {:?}", a, b, c, d);
 }
