@@ -149,7 +149,6 @@ fn main() {
     // decode_hex_string_("c027654400000000");
 
     // decode_hex_string_("f07e0e0000000000");
-    
 
     //fd190a
     // compact_size("21");
@@ -158,7 +157,8 @@ fn main() {
     // compact_size("FF00E40B5402000000");
 
     // test_mut_ref();
-    test_assignment();
+    // test_assignment();
+    base_test_assignment();
 }
 
 fn test_main() {

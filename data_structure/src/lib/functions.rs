@@ -10,7 +10,9 @@
 use std::{
     collections::{HashMap, LinkedList},
     io::{self, Bytes, Read},
-    mem::swap, rc::Rc, sync::{Arc, Mutex},
+    mem::swap,
+    rc::Rc,
+    sync::{Arc, Mutex},
 };
 
 use hex::{decode, encode};
@@ -262,19 +264,19 @@ pub fn compact_size(hex_string: &str) {
             bytes.read_exact(&mut buf);
             let value = u64::from_le_bytes(buf);
             println!("u64 value: {}", value);
-        },
+        }
         0xFE => {
             let mut buf = [0; 4];
             bytes.read_exact(&mut buf);
             let value = u32::from_le_bytes(buf);
             println!("u32 value: {}", value);
-        },
+        }
         0xFD => {
             let mut buf = [0; 2];
             bytes.read_exact(&mut buf);
-            let value= u16::from_le_bytes(buf);
+            let value = u16::from_le_bytes(buf);
             println!("u16 value: {}", value);
-        },
+        }
         n => {
             println!("u8 value: {}", n);
         }
@@ -284,11 +286,11 @@ pub fn compact_size(hex_string: &str) {
 fn test() {
     //  let arr: [u8; 13] = (1,1,1,1,1,1,1,1,1,1,1,1,1).into();
 
-      let arr: [u8; 3] = (1, 1, 1).into();
+    let arr: [u8; 3] = (1, 1, 1).into();
 
-       let v: Vec<u8> = [1,2,3].into();
+    let v: Vec<u8> = [1, 2, 3].into();
 
-        let list: LinkedList<_> = [1, 2, 3, 4].into();
+    let list: LinkedList<_> = [1, 2, 3, 4].into();
 
     let penguin_data = "\
     common name,length (cm) 
@@ -298,7 +300,6 @@ fn test() {
 
     let records = penguin_data.lines();
 }
-
 
 pub fn test_mut_ref() {
     let mut first = 10;
@@ -316,10 +317,20 @@ pub fn test_mut_ref() {
     println!("second = {}", second);
 }
 
-pub fn test_assignment(){
+pub fn test_assignment() {
     let a = 10;
     let b = Box::new(20);
     let c = Rc::new(Box::new(30));
     let d = Arc::new(Mutex::new(40));
     println!("a: {:?}, b: {:?}, c: {:?}, d: {:?}", a, b, c, d);
+}
+
+pub fn base_test_assignment() {
+    let three = 0b11;
+    let thirty = 0o36;
+    let three_hundred = 0x12C;
+    println!("base 10: {} {} {}", three, thirty, three_hundred);
+    println!("base 2: {:b} {:b} {:b}", three, thirty, three_hundred);
+    println!("base 8: {:o} {:o} {:o}", three, thirty, three_hundred);
+    println!("base 16: {:x} {:x} {:x}", three, thirty, three_hundred);
 }
